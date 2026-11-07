@@ -59,7 +59,8 @@ private val navy = Color(0xFF1E2A5A)
 // ---------- Pantalla principal ----------
 @Composable
 fun AgendaScreen() {
-    val store = remember { DayStore(LocalContext.current) }
+    val context = LocalContext.current
+    val store = remember { DayStore(context) }
     var date by remember { mutableStateOf(LocalDate.now()) }
     var page by remember { mutableIntStateOf(1) }
     var pageCount by remember { mutableIntStateOf(store.pageCount(date)) }
